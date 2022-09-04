@@ -1,6 +1,6 @@
 import React, {useEffect, useCallback, useMemo, useState} from 'react';
 import {TouchableOpacity, View, Text, LogBox} from 'react-native';
-// import {PaymentItems, NewsTag, SearchInput} from '../../Components';
+import PropTypes from 'prop-types';
 import styles from './styles';
 LogBox.ignoreAllLogs(); //Ignore all log notifications
 
@@ -21,3 +21,10 @@ export const PaymentTotal = ({totalDues, totalPay}) => {
     </View>
   );
 };
+
+
+PaymentTotal.propTypes = {
+  totalDues: PropTypes.number.isRequired,
+  totalPay: PropTypes.number.isRequired
+
+}
