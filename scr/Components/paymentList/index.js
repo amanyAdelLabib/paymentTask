@@ -15,7 +15,7 @@ export const PaymentList = ({data}) => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [totalSlectedPay, setTotalSelectedPay] = useState(0);
-
+  let totalVal=0;
   const formattedAllPaymentlist = useMemo(
     () => data.sort((a, b) => a.dueDate < b.dueDate),
     [data],
@@ -33,7 +33,7 @@ export const PaymentList = ({data}) => {
           <PaymentItems
             post={item}
             index={index}
-            total={val => setTotalAmount(current => current + val)}
+            total={val => (totalVal = totalVal + val)}
             onPressBtn={setSelectedIndex}
             selectedIndex={selectedIndex}
             onPressTotal={val => setTotalSelectedPay(current => current + val)}
